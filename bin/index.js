@@ -84,11 +84,11 @@ let tsconfig = {
 
 async function init() {
   let app,
-    args = process.argv.shift().shift();
+    args = process.argv;
   checkForConfigArgs(args);
   if (args.length) {
-    let fileCheck = args.filter(arg => {
-      return /\w*\.(t|j)s(x?)$/.test(arg);
+    let fileCheck = args.filter((arg, i) => {
+      return i > 1 && /\w*\.(t|j)s(x?)$/.test(arg);
     });
     if (fileCheck.length)
       config.fileName = fileCheck[0].replace(/\.(t|j)s(x?)/, "");
