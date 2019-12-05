@@ -2,7 +2,7 @@
 
 Generate Typescript support for any compatible Adobe app with a single terminal command:
 
-![screen capture]()
+![screen capture](https://thumbs.gfycat.com/CrispShorttermGermanspitz-size_restricted.gif)
 
 ## Installation
 
@@ -13,7 +13,9 @@ npm install -g scriptopia
 
 ## Usage
 
-Scriptopia will download reliable typescript definitions to your project (but skip if already present), generate a `tsconfig.json` and `.ts` file in your current working directory, then instruct you on the hotkey to run the `tsc: watch` task to finish your setup.
+Scriptopia will download reliable typescript definitions to your project (but skip if already present), generate a `tsconfig.json` and `.ts` file in your current working directory, then instruct you on the hotkey to run the `tsc: watch` task to finish your setup:
+
+![](https://thumbs.gfycat.com/UnconsciousCommonHarvestmouse-size_restricted.gif)
 
 Using the command with no arguments will result in a CLI prompt for which application to script for, and what the name of the file should be:
 
