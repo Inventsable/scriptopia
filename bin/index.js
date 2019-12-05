@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 let helpme = false;
+let cwd = path.dirname(fs.realpathSync(__filename));
 let taskHotkeys = /win|linux/i.test(process.platform)
   ? "CONTROL + SHIFT + B"
   : "COMMAND + SHIFT + B";
@@ -52,6 +53,7 @@ let tsconfig = {
 
 async function init() {
   const args = process.argv;
+  console.log(cwd);
   checkForConfigArgs(args);
   if (helpme) return showHelp();
   let app;
