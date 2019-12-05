@@ -84,13 +84,15 @@ let tsconfig = {
 
 async function init() {
   let app,
-    args = process.argv;
+    args = process.argv.shift().shift();
   checkForConfigArgs(args);
-  let fileCheck = args.filter(arg => {
-    return /\w*\.(t|j)s(x?)/.test(arg);
-  });
-  if (fileCheck.length)
-    config.fileName = fileCheck[0].replace(/\.(t|j)s(x?)/, "");
+  if (args.length) {
+    let fileCheck = args.filter(arg => {
+      return /\w*\.(t|j)s(x?)$/.test(arg);
+    });
+    if (fileCheck.length)
+      config.fileName = fileCheck[0].replace(/\.(t|j)s(x?)/, "");
+  }
   if (args.includes("help")) showHelp();
   else {
     let targPath = !config.here ? await findNearestParentPackage(cwd) : cwd;
@@ -234,25 +236,27 @@ function generateTSConfig(app, thispath) {
 
 // Redundant, not using enough config args to justify this.
 function checkForConfigArgs(args) {
-  let valids = args.filter(arg => {
-    return /^\-[a-z]*$/i.test(arg);
-  });
-  if (!valids.length) return null;
-  let possibles = {
-    alwaysAsk: ["ask", "a"],
-    useLatest: ["latest", "l"],
-    quiet: ["quiet", "q"],
-    here: ["here", "h"]
-  };
-  valids.forEach(valid => {
-    Object.keys(possibles).forEach(key => {
-      possibles[key].forEach(term => {
-        config[key] = !config[key]
-          ? new RegExp(`^\-${term}$`, "i").test(valid)
-          : true;
+  if (!args.length) {
+    let valids = args.filter(arg => {
+      return /^\-[a-z]*$/i.test(arg);
+    });
+    if (!valids.length) return null;
+    let possibles = {
+      alwaysAsk: ["ask", "a"],
+      useLatest: ["latest", "l"],
+      quiet: ["quiet", "q"],
+      here: ["here", "h"]
+    };
+    valids.forEach(valid => {
+      Object.keys(possibles).forEach(key => {
+        possibles[key].forEach(term => {
+          config[key] = !config[key]
+            ? new RegExp(`^\-${term}$`, "i").test(valid)
+            : true;
+        });
       });
     });
-  });
+  }
 }
 
 // Redundant, not needed
