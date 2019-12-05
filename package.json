@@ -1,11 +1,11 @@
 {
   "name": "scriptopia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate Typescript support for any compatible Adobe app with a single terminal command",
   "main": "bin/index.js",
   "bin": {
-    "scri": "bin/index.js",
-    "scriptopia": "bin/index.js"
+    "scri": "./bin/index.js",
+    "scriptopia": "./bin/index.js"
   },
   "directories": {
     "lib": "lib"
