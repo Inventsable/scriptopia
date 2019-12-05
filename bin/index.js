@@ -184,6 +184,8 @@ function showEndMessage(thispath, app) {
   let root = thispath.match(/[^\\|\/]*$/)[0];
   let relpath = `${root}/${trail.travelDown}`;
   relpath = relpath.replace(/\\/gm, "/");
+  let lengthcheck = replace.split(/\\|\//);
+  if (lengthcheck.length == 2) relpath = relpath.match(/[^\\|\/]*$/)[0];
   console.log("");
   console.log(`✔  We're all done!`);
 
@@ -312,7 +314,7 @@ async function checkPackageForInstall(thispath) {
 // Redundant, npm install automatically handles parent chaining
 function differenceFromRoot(thispath) {
   let remainder = cwd.replace(thispath, "");
-  if (!remainder.length) return { travelUp: "./", travelDown: "./" };
+  if (!remainder.length) return { travelUp: "", travelDown: "" };
   else {
     remainder = remainder.replace(/(^\\|\/)|(\\|\/)$/, "");
     let depths = remainder.split(/\\|\//);
