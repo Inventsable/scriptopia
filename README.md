@@ -13,7 +13,7 @@ npm install -g scriptopia
 
 ## Usage
 
-Scriptopia will download reliable typescript definitions to your project (but skip if already present), generate a `tsconfig.json` and `.ts` file in your current working directory, then instruct you on the hotkey to run the `tsc: watch` task to finish your setup:
+Scriptopia will download [reliable typescript definitions from Ten-A's fork](https://github.com/ten-A/Types-for-Adobe) to your project (but skip if already present), generate a `tsconfig.json` and `.ts` file in your current working directory, then instruct you on the hotkey to run the `tsc: watch` task to finish your setup:
 
 ![](https://thumbs.gfycat.com/UnconsciousCommonHarvestmouse-size_restricted.gif)
 
