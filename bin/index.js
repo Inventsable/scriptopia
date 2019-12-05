@@ -184,7 +184,7 @@ function showEndMessage(thispath, app) {
   let root = thispath.match(/[^\\|\/]*$/)[0];
   let relpath = trail.travelDown.length ? `${root}/${trail.travelDown}` : ``;
   relpath = relpath.replace(/\\/gm, "/");
-  let lengthcheck = replace.split(/\\|\//);
+  let lengthcheck = relpath.split(/\\|\//);
   if (lengthcheck.length == 2) relpath = relpath.match(/[^\\|\/]*$/)[0];
   console.log("");
   console.log(`✔  We're all done!`);

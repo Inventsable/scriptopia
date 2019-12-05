@@ -1,6 +1,6 @@
 {
   "name": "scriptopia",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "Generate Typescript support for any compatible Adobe app with a single terminal command",
   "main": "bin/index.js",
   "bin": {
