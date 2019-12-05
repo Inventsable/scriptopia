@@ -204,7 +204,7 @@ function showEndMessage(thispath, app) {
 
 function writeDefaultFiles() {
   fs.writeFileSync(
-    `${path.resolve(cwd)}/${config.fileName.replace(/\..*/, "")}.ts`,
+    `${cwd}/${config.fileName.replace(/\..*/, "")}.ts`,
     `// Welcome to the world of Typescript!
 // Be sure to run 'tsc: watch - [path to tsconfig]', then try writing 'app.' below:`
   );

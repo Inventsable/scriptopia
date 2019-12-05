@@ -13,11 +13,14 @@ npm install -g scriptopia
 
 ## Usage
 
-Scriptopia will download reliable typescript definitions to your project (but skip if already present), then generate a `tsconfig.json` and `.ts` file in your current working directory.
+Scriptopia will download reliable typescript definitions to your project (but skip if already present), generate a `tsconfig.json` and `.ts` file in your current working directory, then instruct you on the hotkey to run the `tsc: watch` task to finish your setup.
 
 Using the command with no arguments will result in a CLI prompt for which application to script for, and what the name of the file should be:
 
 ```bash
+# This assumes a package.json is present somewhere in your project. If so, you can use it within any child no matter the depth, but if not, you'll need to create one beforehand:
+npm init -y
+
 scriptopia
 ```
 
@@ -37,3 +40,15 @@ scriptopia illustrator myScript.jsx
 - InDesign - `id`, `idsn`, or `indesign`
 - Premeire Pro - `pp`, `ppro`, `premiere`, or `premierepro`
 - Audition - `au`, `audt`, or `audition`
+
+---
+
+## Help
+
+Feel free to file an issue, but if you have `help` any where in your arguments, like so:
+
+```bash
+scriptopia help
+```
+
+You'll see a message similar to the above outlining it's usage.
