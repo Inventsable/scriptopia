@@ -1,6 +1,6 @@
 {
   "name": "scriptopia",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate Typescript support for any compatible Adobe app with a single terminal command",
   "main": "bin/index.js",
   "bin": {
@@ -12,11 +12,15 @@
   },
   "dependencies": {
     "chalk": "^3.0.0",
-    "inquirer": "^7.0.0"
+    "inquirer": "^7.0.0",
+    "ora": "^4.0.2",
+    "shelljs": "^0.8.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "types-for-adobe": "github:ten-A/types-for-adobe"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clear": "npm uninstall --save-dev types-for-adobe"
   },
   "repository": {
     "type": "git",
