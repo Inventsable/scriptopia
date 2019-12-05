@@ -182,7 +182,7 @@ function showHelp() {
 function showEndMessage(thispath, app) {
   let trail = differenceFromRoot(thispath);
   let root = thispath.match(/[^\\|\/]*$/)[0];
-  let relpath = `${root}/${trail.travelDown}`;
+  let relpath = trail.travelDown.length ? `${root}/${trail.travelDown}` : ``;
   relpath = relpath.replace(/\\/gm, "/");
   let lengthcheck = replace.split(/\\|\//);
   if (lengthcheck.length == 2) relpath = relpath.match(/[^\\|\/]*$/)[0];
@@ -192,7 +192,7 @@ function showEndMessage(thispath, app) {
   console.log("");
   console.log(
     `Now hit ${chalk.yellow(`${taskHotkeys}`)} and select ${chalk.bgBlue.black(
-      ` tsc: watch - ${relpath}/tsconfig.json `
+      ` tsc: watch - ${relpath.length ? relpath + "/" : ""}tsconfig.json `
     )}`
   );
   console.log("");
